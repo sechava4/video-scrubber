@@ -7,7 +7,7 @@ class Config(object):
     )
     SQLALCHEMY_DATABASE_URI = (
         os.environ.get("DATABASE_URL")
-        or "mysql+pymysql://admin:some_secret.@localhost:3306/videodb"
+        or "mysql+pymysql://videoman:some_secret@localhost:3306/videodb"
     )
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False

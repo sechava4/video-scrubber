@@ -4,7 +4,7 @@ from datetime import datetime
 from flaskapp import db
 
 
-class AllowedExtensions(enum.enum):
+class AllowedExtensions(enum.Enum):
     mp4 = "mp4"
     jpg = "jpg"
     png = "png"
@@ -19,7 +19,7 @@ class User(db.Model):
         return "<User {}>".format(self.username)
 
 
-class File:
+class File(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     user = db.relationship("User", back_populates="files")

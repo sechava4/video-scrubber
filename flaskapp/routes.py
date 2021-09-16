@@ -1,9 +1,10 @@
 import os
-import exiftool
 from datetime import datetime
-from flaskapp import flaskapp as app
 
+import exiftool
 from flask import jsonify, request
+
+from flaskapp import flaskapp as app
 
 
 def get_parser():

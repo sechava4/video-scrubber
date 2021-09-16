@@ -1,2 +1,2 @@
 # video-scrubber
-multimedia metadata scrubbing micoservice
+multimedia metadata scrubbing microservice
