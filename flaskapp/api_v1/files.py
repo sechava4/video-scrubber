@@ -22,7 +22,7 @@ def get_file_metadata(file_id):
     return jsonify(file.meta)
 
 
-@api.route("/files/<file_id>/meta", methods=['PATCH'])
+@api.route("/files/<file_id>/meta", methods=["PATCH"])
 def update_metadata(file_id):
     file = File.query.filter(File.id == file_id).first()
     if not file:
@@ -35,8 +35,8 @@ def update_metadata(file_id):
 
 
 @api.route("/users/<user_id>/files/", methods=["GET"])
-def get_files(user_id, file_id):
-    files = File.query.filter(File.user_id == user_id, File.id == file_id).all()
+def get_files(user_id):
+    files = File.query.filter(File.user_id == user_id).all()
     if not files:
         return abort(404)
     return files_schema.dump(files)

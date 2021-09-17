@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "0f167794-2344-481a-9067-76e2af814d22",
+		"name": "VideoScrapper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/Santiago/OneDrive - Universidad EAFIT/Documentos/Trabajos independientes/FlaskVideoScrubber/VideoScrubber/v2.mp4"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/6/files/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"6",
+						"files",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"santiago6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/users/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get file meta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/files/3/meta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"files",
+						"3",
+						"meta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get file resource",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/files/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"files",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update meta",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AudioBitsPerSample\": 16,\r\n    \"AudioChannels\": 2,\r\n    \"AudioFormat\": \"mp4a\",\r\n    \"AudioSampleRate\": 48000,\r\n    \"AvgBitrate\": 2081759,\r\n    \"Balance\": 0,\r\n    \"BitDepth\": 24,\r\n    \"CompatibleBrands\": [\r\n        \"mp42\",\r\n        \"isom\"\r\n    ],\r\n    \"CompressorID\": \"avc1\",\r\n    \"CreateDate\": \"2021:11:00 00:00:00\",\r\n    \"Creator\": \"myself\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/files/7/meta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"files",
+						"7",
+						"meta"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
