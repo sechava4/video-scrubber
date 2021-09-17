@@ -23,7 +23,7 @@ For the database system, a MYSQL instance was used to store the application reso
 I used gunicorn as web server along with ngnix to proxi traffic to the app instance.
 
 ## Usage
-- Create a user on http://159.89.103.171/api/v1/users/ according to the postman collection format.
+- Create a user making a POST request on http://159.89.103.171/api/v1/users/ according to the postman collection format.
 - Upload files making post requests to http://159.89.103.171/api/v1/users/<user_id>/files/ endpoint.
 
 The API JSON responses will guide you to other URLs for viewing or updating the file metadata.
