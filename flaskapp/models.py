@@ -25,4 +25,5 @@ class File(db.Model):
     user = db.relationship("User", back_populates="files")
     extension = db.Column(db.Enum(AllowedExtensions))
     updated_time = db.Column(db.DateTime, default=datetime.now())
-    data = db.Column(db.BLOB)
+    data = db.Column(db.LargeBinary(length=12071628))
+    meta = db.Column(db.JSON)

@@ -9,6 +9,5 @@ class Config(object):
         os.environ.get("DATABASE_URL")
         or "mysql+pymysql://videoman:some_secret@localhost:3306/videodb"
     )
-
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TESTING = False
