@@ -1,4 +1,5 @@
 import os
+from sys import platform
 from datetime import datetime
 
 import exiftool
@@ -6,6 +7,8 @@ import exiftool
 
 class Parser:
     def __init__(self, exe_path="./exiftool(-k).exe"):
+        if platform == "linux" or platform == "linux2":
+            exe_path = None
         self.et = exiftool.ExifTool(exe_path)
         self.et.start()
 
