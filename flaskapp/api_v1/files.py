@@ -39,7 +39,7 @@ def get_files(user_id):
     files = File.query.filter(File.user_id == user_id).all()
     if not files:
         return abort(404)
-    return files_schema.dump(files)
+    return jsonify(files_schema.dump(files))
 
 
 @api.route("/users/<user_id>/files/", methods=["POST"])
