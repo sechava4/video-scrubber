@@ -6,43 +6,13 @@
 	},
 	"item": [
 		{
-			"name": "Upload file",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "file",
-					"file": {
-						"src": "/C:/Users/Santiago/OneDrive - Universidad EAFIT/Documentos/Trabajos independientes/FlaskVideoScrubber/VideoScrubber/v2.mp4"
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/v1/users/6/files/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"6",
-						"files",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Create user",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"santiago6\"\r\n}",
+					"raw": "{\r\n    \"username\": \"santiago\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,13 +20,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/users/",
+					"raw": "http://159.89.103.171/api/v1/users/",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"159",
+						"89",
+						"103",
+						"171"
 					],
-					"port": "5000",
 					"path": [
+						"api",
+						"v1",
 						"users",
 						""
 					]
@@ -70,15 +44,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/users/6",
+					"raw": "http://159.89.103.171/api/v1/users/1",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"159",
+						"89",
+						"103",
+						"171"
 					],
-					"port": "5000",
 					"path": [
+						"api",
+						"v1",
 						"users",
-						"6"
+						"1"
 					]
 				}
 			},
@@ -90,16 +68,83 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/files/3/meta",
+					"raw": "http://159.89.103.171/api/v1/files/1/meta",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"159",
+						"89",
+						"103",
+						"171"
 					],
-					"port": "5000",
 					"path": [
+						"api",
+						"v1",
 						"files",
-						"3",
+						"1",
 						"meta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.89.103.171/api/v1/users/1/files/",
+					"protocol": "http",
+					"host": [
+						"159",
+						"89",
+						"103",
+						"171"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"files",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/Santiago/OneDrive - Universidad EAFIT/Documentos/Trabajos independientes/FlaskVideoScrubber/VideoScrubber/v2.mp4"
+					},
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://159.89.103.171/api/v1/users/1/files/",
+					"protocol": "http",
+					"host": [
+						"159",
+						"89",
+						"103",
+						"171"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"files",
+						""
 					]
 				}
 			},
@@ -111,15 +156,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/files/3",
+					"raw": "http://159.89.103.171/api/v1/files/2",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"159",
+						"89",
+						"103",
+						"171"
 					],
-					"port": "5000",
 					"path": [
+						"api",
+						"v1",
 						"files",
-						"3"
+						"2"
 					]
 				}
 			},
@@ -132,7 +181,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"AudioBitsPerSample\": 16,\r\n    \"AudioChannels\": 2,\r\n    \"AudioFormat\": \"mp4a\",\r\n    \"AudioSampleRate\": 48000,\r\n    \"AvgBitrate\": 2081759,\r\n    \"Balance\": 0,\r\n    \"BitDepth\": 24,\r\n    \"CompatibleBrands\": [\r\n        \"mp42\",\r\n        \"isom\"\r\n    ],\r\n    \"CompressorID\": \"avc1\",\r\n    \"CreateDate\": \"2021:11:00 00:00:00\",\r\n    \"Creator\": \"myself\" \r\n}",
+					"raw": "{\r\n    \"CreateDate\": \"2021:11:00 00:00:00\",\r\n    \"Creator\": \"myself\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -140,17 +189,19 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/v1/files/7/meta",
+					"raw": "http://159.89.103.171/api/v1/files/1/meta",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"159",
+						"89",
+						"103",
+						"171"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"v1",
 						"files",
-						"7",
+						"1",
 						"meta"
 					]
 				}
