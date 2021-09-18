@@ -24,6 +24,11 @@ I used gunicorn as web server along with ngnix to proxi traffic to the app insta
 
 ## Usage
 - Create a user making a POST request on http://159.89.103.171/api/v1/users/ according to the postman collection format.
-- Upload files making post requests to http://159.89.103.171/api/v1/users/<user_id>/files/ endpoint.
+- Upload files making post requests to http://159.89.103.171/api/v1/users/<user_id>/files/ endpoint as follows:
+![image](https://user-images.githubusercontent.com/37352122/133867844-c745b432-f6d0-453f-8fbb-70ad61f358fd.png)
 
-The API JSON responses will guide you to other URLs for viewing or updating the file metadata.
+- Check and update File metadata as follows:
+![image](https://user-images.githubusercontent.com/37352122/133867895-5b160744-a651-43c2-aa6f-f42d946c300c.png)
+
+
+The API JSON responses will guide you to different URLs for viewing or updating the resources.
