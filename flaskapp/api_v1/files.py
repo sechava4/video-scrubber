@@ -11,7 +11,16 @@ from flaskapp.parser import Parser
 @api.route("/files/<file_id>")
 def get_file_detail(file_id):
     file = File.query.filter(File.id == file_id).first()
+    if not file:
+        abort(404)
     return file_schema.dump(file)
+
+
+@api.route("/files/<file_id>", methods=['DELETE'])
+def delete_file(file_id):
+    File.query.filter(File.id == file_id).delete()
+    db.session.commit()
+    return jsonify({"message": "File deleted"})
 
 
 @api.route("/files/<file_id>/meta")

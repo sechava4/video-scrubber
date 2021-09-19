@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, abort, jsonify
 
 from flaskapp import db
 from flaskapp.api_v1 import api
@@ -18,4 +18,13 @@ def create_user():
 @api.route("/users/<user_id>")
 def get_user_detail(user_id):
     user = User.query.filter(User.id == user_id).first()
+    if not user:
+        return abort(404)
     return user_schema.dump(user)
+
+
+@api.route("/users/<user_id>", methods=['DELETE'])
+def delete_user(user_id):
+    User.query.filter(User.id == user_id).delete()
+    db.session.commit()
+    return jsonify({"message": "User deleted"})
