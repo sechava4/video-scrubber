@@ -9,7 +9,9 @@ multimedia metadata scrubbing microservice
 ## API design
 This application consists of a RESTful API implementation. The communication protocol is HTTP to access, create, update and delete entities. I implemented GET, POST, PATCH, and DELETE endpoints for this requirement. To modify File metadata, I used PATCH instead of PUT to allow partial modification (Modifying one or more existing fields or adding new ones).
 
-For the development of the logic to handle resources I used a factory design pattern. Specifically, in the [parser file](flaskapp/api_v1/parser.py), I used an abstract class to define a base for common parsing classes (each using different engine for example). For a specific implementation, I created ExiftoolParser which uses ExifTool as the engine. [Here](flaskapp/api_v1/files.py), I used the factory to instantiate the required class for our use case, then we can call the abstract method "get_metadata" independently of the instantiated class.
+For the development of the logic to handle resources I used a factory design pattern. Specifically, in the [parser file](flaskapp/api_v1/parser.py), I used an abstract class to define a base for common parsing classes (each using different engine for example). For a specific implementation, I created ExiftoolParser which uses ExifTool as the engine. [Here](flaskapp/api_v1/files.py), I used the factory to instantiate the required class for our use case, then we can call the abstract method "get_metadata" (Single responsibility principle) independently of the instantiated class.
+
+Along with this implementation, I also used dependency injection on the parser class __init__ method to have the abstract class as generic as possible and comply with the solid principles (Liskov Substitution principle). We can add more functionality in terms of more classes (Open\Closed principle). Since code in our file controller depends on abstractions, we also comply with the dependency inversion principle.
 
 Another design strategy used is API versioning. This implementation was held by registering the api_v1 module as a blueprint. This allows to have decoupled and pluggable modules to the main application.
 
