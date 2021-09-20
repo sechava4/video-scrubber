@@ -5,7 +5,7 @@ from flaskapp import db
 from flaskapp.api_v1 import api
 from flaskapp.api_v1.representors import file_schema, files_schema
 from flaskapp.models import User, File, AllowedExtensions
-from flaskapp.parser import Parser
+from flaskapp.parser import parser_factory
 
 
 @api.route("/files/<file_id>")
@@ -59,9 +59,15 @@ def create_user_file(user_id):
     ext = request.content_type.split("/")[1]
 
     if ext not in [a.value for a in AllowedExtensions]:
-        return abort(400)
-    parser = Parser()
-    meta = parser.get_metadata(ext, request.data)
+        response = jsonify({"message": f"Invalid extension '{ext}'"})
+        response.status_code = 404
+        return response
+
+    parser_class = parser_factory.get("default")
+    parser = parser_class(file_extension=ext)
+
+    meta = parser.get_metadata(request.data)
+
     file = File(user=user, extension=ext, data=request.data, meta=meta)
     db.session.add(file)
     db.session.commit()

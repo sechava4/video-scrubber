@@ -8,6 +8,7 @@ class AllowedExtensions(enum.Enum):
     mp4 = "mp4"
     jpg = "jpg"
     png = "png"
+    jpeg = "jpeg"
 
 
 class User(db.Model):
