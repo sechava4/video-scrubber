@@ -1,5 +1,4 @@
 # video-scrubber
-# video-scrubber
 multimedia metadata scrubbing microservice
 
 ## Data model
